@@ -3,11 +3,11 @@ import AgeException, NameException
 class Player(object):
     '''Defines the player'''
     
-    def __init__(self, name, age, weapons):
+    def __init__(self, name, age, inventory):
         '''Creates a new player'''
         self.name = name
         self.age = age
-        self.weapons = weapons
+        self.inventory = inventory
     
     @property
     def name(self):
@@ -38,23 +38,21 @@ class Player(object):
         self._age = value
         
     @property
-    def weapon(self):
-        '''Get the player's weapon'''
-        return self._weapon
+    def inventory(self):
+        '''Get the player's inventory'''
+        return self._inventory
     
-    @weapon.setter
-    def weapon(self, value):
-        '''Set the player's weapon'''
-        self._weapon = value
-          
+    @inventory.setter
+    def inventory(self, value):
+        '''Set the player's inventory'''
+        self._inventory = value
+               
     def description(self):
         '''Print the player's description'''  
         print("Name:   {0}".format(self._name))
         print("Age:    {0}".format(self._age))
-        
-        for i in range(len(self.weapons)):
-            print("Weapon {0}:".format(i+1))
-            print("  {0}".format(self.weapons[i].description()))
+        print("Inventory:")
+        print(self.inventory.description())
         
         
         
